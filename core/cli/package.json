@@ -1,0 +1,40 @@
+{
+  "name": "@letter-cli/cli",
+  "version": "0.0.0",
+  "description": "letter-cli core cli",
+  "keywords": [
+    "letter",
+    "cli",
+    "core",
+    "cli"
+  ],
+  "bin": {
+    "letter": "bin/index.js"
+  },
+  "author": "hui <125173679@qq.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@letter-cli/log": "^0.0.0",
+    "@letter-cli/util": "^0.0.0",
+    "colors": "^1.4.0",
+    "commander": "^9.2.0",
+    "dotenv": "^16.0.0",
+    "root-check": "1.0.0",
+    "semver": "^7.3.7"
+  }
+}
