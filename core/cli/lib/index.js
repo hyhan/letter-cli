@@ -15,7 +15,6 @@ const userHome = homedir()
 
 async function cli() {
   try {
-    console.log(userHome)
     await prepare()
     await registerCommand()
   } catch (e) {
