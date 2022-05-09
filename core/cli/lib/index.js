@@ -24,7 +24,20 @@ async function cli() {
 }
 
 async function registerCommand() {
-  program.version(pkg.version).option('-d, --debug', '是否开启调试模式', false)
+  program
+    .name(Object.keys(pkg.bin)[0])
+    .usage('<command> [options]')
+    .version(pkg.version)
+    .option('-d, --debug', '是否开启调试模式', false)
+    .option('-tp, --targetPath <targetPath>', '是否指定本地调试文件路径', '')
+
+  // init command
+  program
+    .command('init [projectName')
+    .option('-f, --force', '是否强制初始化项目')
+    .action(function (projectName, options, cmdObj) {
+      console.log(projectName, options, cmdObj)
+    })
 
   // 开启debug模式
   program.on('option:debug', function () {
@@ -34,6 +47,22 @@ async function registerCommand() {
       log.level = process.env.LOG_LEVEL
     }
     log.verbose('debug模式开启')
+  })
+
+  // 指定targetPath
+  program.on('option:targetPath', function (targetPath) {
+    if (targetPath) {
+      process.env.TARGET_PATH = targetPath
+    }
+  })
+
+  // 对未知的命令监听
+  program.on('command:*', function (obj) {
+    const availableCommands = program.commands.map((cmd) => cmd.name())
+    console.log(colors.red(`位置的命令：${obj[0]}`))
+    if (availableCommands.length > 0) {
+      console.log(colors.red(`可用的命令：${availableCommands.join(',')}`))
+    }
   })
 
   program.parse(process.argv)
