@@ -1,6 +1,6 @@
 {
   "name": "@letter-cli/log",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "letter cli utils util log",
   "keywords": [
     "letter",

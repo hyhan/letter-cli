@@ -1,6 +1,6 @@
 {
   "name": "@letter-cli/format-path",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "letter-cli utils format-path",
   "keywords": [
     "letter",

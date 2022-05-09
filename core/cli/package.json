@@ -1,6 +1,6 @@
 {
   "name": "@letter-cli/cli",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "letter-cli core cli",
   "keywords": [
     "letter",
@@ -29,8 +29,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@letter-cli/log": "^0.0.0",
-    "@letter-cli/util": "^0.0.0",
+    "@letter-cli/log": "^0.0.1",
+    "@letter-cli/util": "^0.0.1",
     "colors": "^1.4.0",
     "commander": "^9.2.0",
     "dotenv": "^16.0.0",
