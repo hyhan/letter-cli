@@ -25,18 +25,16 @@ async function getNpmInfo(npmName, registry = 'https://registry.npmjs.org') {
 async function getNpmVersions(npmName, registry) {
   const data = await getNpmInfo(npmName, registry)
   if (data) {
-    return Object.keys(data)
+    return Object.keys(data.versions)
   } else {
     return []
   }
 }
 
-async function getSemverVersions(baseVersion, versions) {
-  return versions.filter((version) =>
-    semver
-      .satisfies(version, `>${baseVersion}`)
-      .sort((a, b) => (semver.gt(b, a) ? 1 : -1))
-  )
+function getSemverVersions(baseVersion, versions) {
+  return versions
+    .filter((version) => semver.satisfies(version, `>${baseVersion}`))
+    .sort((a, b) => (semver.gt(b, a) ? 1 : -1))
 }
 
 async function getNpmSemverVersion(baseVersion, npmName, registry) {

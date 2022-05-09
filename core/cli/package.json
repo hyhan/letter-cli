@@ -31,6 +31,7 @@
   "dependencies": {
     "@letter-cli/log": "^0.0.1",
     "@letter-cli/util": "^0.0.1",
+    "@letter-cli/get-npm-info": "^0.0.1",
     "colors": "^1.4.0",
     "commander": "^9.2.0",
     "dotenv": "^16.0.0",

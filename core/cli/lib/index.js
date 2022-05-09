@@ -3,7 +3,8 @@ const { homedir } = require('os')
 const path = require('path')
 const fs = require('fs')
 const log = require('@letter-cli/log')
-// const semver = require('semver')
+const { getNpmSemverVersion } = require('@letter-cli/get-npm-info')
+const semver = require('semver')
 const commander = require('commander')
 const colors = require('colors/safe')
 const pkg = require('../package.json')
@@ -44,6 +45,7 @@ async function prepare() {
   checkRoot()
   checkUserHome()
   checkEnv()
+  await checkGlobalUpdate()
 }
 
 function checkPkgVersion() {
@@ -81,6 +83,18 @@ function createDefaultConfig() {
   )
   cliConfig.cliHome = cliHome
   process.env.CLI_HOME_PATH = cliHome
+}
+
+async function checkGlobalUpdate() {
+  const currentVersion = pkg.version
+  const npmName = pkg.name
+  const latestVersion = await getNpmSemverVersion(currentVersion, npmName)
+  if (latestVersion && semver.gt(latestVersion, currentVersion)) {
+    log.warn(
+      colors.yellow(`请手动更新 ${npmName}，当前版本：${currentVersion}，最新版本：${latestVersion}
+                更新命令： npm install -g ${npmName}`)
+    )
+  }
 }
 
 module.exports = cli
