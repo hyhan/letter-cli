@@ -52,7 +52,7 @@ async function registerCommand() {
   // 指定targetPath
   program.on('option:targetPath', function (targetPath) {
     if (targetPath) {
-      process.env.TARGET_PATH = targetPath
+      process.env.CLI_TARGET_PATH = targetPath
     }
   })
 
