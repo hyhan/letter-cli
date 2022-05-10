@@ -4,11 +4,18 @@ const semver = require('semver')
 const axios = require('axios')
 const urlJoin = require('url-join')
 
-async function getNpmInfo(npmName, registry = 'https://registry.npmjs.org') {
+function getDefaultRegistry(isOriginal = false) {
+  return isOriginal
+    ? 'https://registry.npmjs.org'
+    : 'https://registry.npm.taobao.org'
+}
+
+async function getNpmInfo(npmName, registry) {
   if (!npmName) {
     return null
   }
-  const npmPath = urlJoin(registry, npmName)
+  const registryUrl = registry || getDefaultRegistry()
+  const npmPath = urlJoin(registryUrl, npmName)
   return axios
     .get(npmPath)
     .then((response) => {
@@ -60,4 +67,5 @@ module.exports = {
   getNpmLatestVersion,
   getSemverVersions,
   getNpmSemverVersion,
+  getDefaultRegistry,
 }
