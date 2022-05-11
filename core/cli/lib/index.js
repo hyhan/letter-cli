@@ -4,6 +4,7 @@ const path = require('path')
 const fs = require('fs')
 const log = require('@letter-cli/log')
 const { getNpmSemverVersion } = require('@letter-cli/get-npm-info')
+const exec = require('@letter-cli/exec')
 const semver = require('semver')
 const commander = require('commander')
 const colors = require('colors/safe')
@@ -35,9 +36,7 @@ async function registerCommand() {
   program
     .command('init [projectName')
     .option('-f, --force', '是否强制初始化项目')
-    .action(function (projectName, options, cmdObj) {
-      console.log(projectName, options, cmdObj)
-    })
+    .action(exec)
 
   // 开启debug模式
   program.on('option:debug', function () {
