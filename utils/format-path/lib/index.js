@@ -1,7 +1,17 @@
 'use strict'
 
-module.exports = formatPath
+const path = require('path')
 
-function formatPath() {
-  // TODO
+function formatPath(p) {
+  if (p && typeof p === 'string') {
+    const { sep } = path
+    if (sep === '/') {
+      return p
+    } else {
+      return p.replace(/\\/g, '/')
+    }
+  }
+  return p
 }
+
+module.exports = formatPath

@@ -1,6 +1,7 @@
 'use strict'
 
 const log = require('@letter-cli/log')
+// const Package = require('@letter-cli/package')
 
 function exec() {
   const targetPath = process.env.CLI_TARGET_PATH

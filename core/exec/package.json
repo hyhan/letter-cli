@@ -26,6 +26,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@letter-cli/log": "^0.0.1"
+    "@letter-cli/log": "^0.0.1",
+    "@letter-cli/package": "^0.0.1"
   }
 }
