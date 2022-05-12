@@ -4,7 +4,7 @@ const path = require('path')
 const { isObject } = require('@letter-cli/util')
 const npminstall = require('npminstall')
 const fse = require('fs-extra')
-const pkgDir = require('pkg-dir')
+const pkgDir = require('pkg-dir').sync
 const formatPath = require('@letter-cli/format-path')
 const {
   getNpmLatestVersion,
@@ -36,10 +36,12 @@ class Package {
       fse.mkdirpSync(this.storeDir)
     }
     if (this.packageVersion === 'latest') {
-      this.packageVersion = getNpmLatestVersion(this.packageName)
+      this.packageVersion = await getNpmLatestVersion(this.packageName)
     }
   }
 
+  // npm的包下载后在本地的存储路径形式是创建一个名为 `_<name>@<version>@<name>` 的文件夹
+  // 包会在下载到这个文件夹下这个get方法就是获取这个 文件夹的path
   get cacheFilePath() {
     return path.resolve(
       this.storeDir,
