@@ -1,15 +1,14 @@
 {
-  "name": "@letter-cli/exec",
+  "name": "@letter-cli/command",
   "version": "0.0.1",
-  "description": "letter-cli core exec",
+  "description": "letter-cli command",
   "keywords": [
     "letter",
     "cli",
-    "core",
-    "exec"
+    "command"
   ],
   "author": "hui <125173679@qq.com>",
-  "homepage": "",
+  "homepage": "https://github.com/hyhan/letter-cli#readme",
   "license": "ISC",
   "main": "lib/index.js",
   "directories": {
@@ -22,12 +21,19 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyhan/letter-cli.git"
+  },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
+  "bugs": {
+    "url": "https://github.com/hyhan/letter-cli/issues"
+  },
   "dependencies": {
     "@letter-cli/log": "^0.0.1",
-    "@letter-cli/package": "^0.0.1",
-    "@letter-cli/util": "^0.0.1"
+    "colors": "^1.4.0",
+    "semver": "^7.3.7"
   }
 }

@@ -1,8 +1,6 @@
-lockfileVersion: 5.3
+lockfileVersion: 5.4
 
 specifiers:
-  '@letter-cli/log': file:../../utils/log
-  '@letter-cli/util': file:../../utils/util
   colors: ^1.4.0
   commander: ^9.2.0
   dotenv: ^16.0.0
@@ -11,8 +9,6 @@ specifiers:
   semver: ^7.3.7
 
 dependencies:
-  '@letter-cli/log': link:../../utils/log
-  '@letter-cli/util': link:../../utils/util
   colors: 1.4.0
   commander: 9.2.0
   dotenv: 16.0.0
